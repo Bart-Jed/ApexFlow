@@ -1,0 +1,62 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1 ApexFlow
+        small &nbsp;Find tracks and track days near you!
+  .row
+    .col-12.col-md-8
+
+      .card
+        .card-body
+          h4
+            a(href="/track") Mondello Park
+            small &nbsp;
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.far.fa-star
+            span.badge.rounded-pill.bg-secondary.float-end 100km
+          p.address Donore, Naas, Co. Kildare
+          .facilities
+            span.badge.bg-warning.text-dark Pit garages
+            span.badge.bg-warning.text-dark Cafe
+            span.badge.bg-warning.text-dark Track days
+
+      .card
+        .card-body
+          h4
+            a(href="/track") Kirkistown
+            small &nbsp;
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.far.fa-star
+              i.far.fa-star
+            span.badge.rounded-pill.bg-secondary.float-end 250km
+          p.address Cloughey, Co. Down
+          .facilities
+            span.badge.bg-warning.text-dark Cafe
+            span.badge.bg-warning.text-dark Track days
+
+      .card
+        .card-body
+          h4
+            a(href="/track") Bishopscourt
+            small &nbsp;
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+            span.badge.rounded-pill.bg-secondary.float-end 260km
+          p.address Bishopscourt, Co. Down
+          .facilities
+            span.badge.bg-warning.text-dark Pit garages
+            span.badge.bg-warning.text-dark Track days
+
+    .col-12.col-md-4
+      p.lead ApexFlow helps you find tracks and track days near you, with ratings and facilities from other drivers and riders.
+

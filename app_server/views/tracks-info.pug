@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1 Mondello Park
+  .row
+    .col-12.col-lg-9
+      .row
+        .col-12.col-md-6
+          p.rating
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+            i.far.fa-star
+          p Donore, Naas, Co. Kildare
+          .card.border-primary
+            .card-body
+              h2.card-title Opening hours
+              p.card-text Monday - Friday : 9:00am - 5:00pm
+              p.card-text Saturday : 9:00am - 6:00pm
+              p.card-text Sunday : closed
+          .card.border-primary
+            .card-body
+              h2.card-title Facilities
+              span.badge.bg-warning.text-dark
+                i.fas.fa-check
+                | &nbsp;Pit garages
+              | &nbsp;
+              span.badge.bg-warning.text-dark
+                i.fas.fa-check
+                | &nbsp;Cafe
+              | &nbsp;
+              span.badge.bg-warning.text-dark
+                i.fas.fa-check
+                | &nbsp;Track days
+        .col-12.col-md-6.location-map
+          .card.border-primary
+            .card-body
+              h2.card-title Track map
+              .bg-light.border.rounded.p-5.text-center.text-muted Map placeholder
+      .row
+        .col-12
+          .card.border-primary.review-card
+            .card-body
+              a.btn.btn-primary.float-end(href='/track/review/new') Add review
+              h2.card-title Customer reviews
+              .row.review
+                .col-12.review-header
+                  span.rating
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.far.fa-star
+                  span.reviewAuthor Test Driver
+                  small.reviewTimestamp 16 February 2026
+                .col-12
+                  p Great layout and well run track day. Would go again.
+              .row.review
+                .col-12.review-header
+                  span.rating
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.far.fa-star
+                    i.far.fa-star
+                  span.reviewAuthor Another Driver
+                  small.reviewTimestamp 14 February 2026
+                .col-12
+                  p Good circuit, but the facilities were a bit basic.
+    .col-12.col-lg-3
+      p.lead
+        | Mondello Park is on ApexFlow because it offers regular track days and good facilities.
+      p
+        | If you've been and you liked it, or if you didn't, please leave a review to help other drivers and riders.

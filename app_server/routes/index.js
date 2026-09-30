@@ -1,12 +1,14 @@
-
-const ctrlLocations = require('../controllers/locations');
+const express = require('express');
+const router = express.Router();
+const ctrlTracks = require('../controllers/tracks');
 const ctrlOthers = require('../controllers/others');
 
-/* Location pages */
-router.get('/', ctrlLocations.homelist);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
+/* Track pages */
+router.get('/', ctrlTracks.homelist);
+router.get('/track', ctrlTracks.trackInfo);
+router.get('/track/review/new', ctrlTracks.addReview);
 
-/* Other Pages */
+/* Other pages */
 router.get('/about', ctrlOthers.about);
+
 module.exports = router;

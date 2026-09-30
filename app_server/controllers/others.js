@@ -6,3 +6,4 @@ const about = function(req, res) {
 module.exports = {
   about
 };
+
