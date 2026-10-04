@@ -1,62 +1,49 @@
 extends layout
 
 block content
+  if saved && saved.length
+    h2 Saved runs
+    .strip-wrap
+      button.strip-arrow.strip-prev(type='button', data-target='savedStrip', data-scroll='-1', aria-label='Previous')
+        i.fas.fa-chevron-left
+      #savedStrip.saved-strip.d-flex.gap-3.overflow-auto
+        each item in saved
+          .saved-card
+            img(src=item.image, alt=item.name)
+            .saved-overlay
+              span.badge.bg-danger.align-self-start Saved
+              h5.mt-2= item.name
+              .d-flex.justify-content-between
+                span= item.date
+                span= item.price 
+                
+              //- TODO: the name, as a heading
+              //- TODO: date on the left, price on the right
+      button.strip-arrow.strip-next(type='button', data-target='savedStrip', data-scroll='1', aria-label='Next')
+        i.fas.fa-chevron-right
   .row.banner
     .col-12
-      h1 ApexFlow
-        small &nbsp;Find tracks and track days near you!
-  .row
-    .col-12.col-md-8
-
-      .card
-        .card-body
-          h4
-            a(href="/track") Mondello Park
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-            span.badge.rounded-pill.bg-secondary.float-end 100km
-          p.address Donore, Naas, Co. Kildare
-          .facilities
-            span.badge.bg-warning.text-dark Pit garages
-            span.badge.bg-warning.text-dark Cafe
-            span.badge.bg-warning.text-dark Track days
-
-      .card
-        .card-body
-          h4
-            a(href="/track") Kirkistown
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.far.fa-star
-              i.far.fa-star
-            span.badge.rounded-pill.bg-secondary.float-end 250km
-          p.address Cloughey, Co. Down
-          .facilities
-            span.badge.bg-warning.text-dark Cafe
-            span.badge.bg-warning.text-dark Track days
-
-      .card
-        .card-body
-          h4
-            a(href="/track") Bishopscourt
-            small &nbsp;
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-              i.fas.fa-star
-            span.badge.rounded-pill.bg-secondary.float-end 260km
-          p.address Bishopscourt, Co. Down
-          .facilities
-            span.badge.bg-warning.text-dark Pit garages
-            span.badge.bg-warning.text-dark Track days
-
-    .col-12.col-md-4
-      p.lead ApexFlow helps you find tracks and track days near you, with ratings and facilities from other drivers and riders.
-
+      h1 Upcoming Sessions
+  .row.row-cols-1.row-cols-md-2.row-cols-xl-3.g-4
+    each track in tracks
+      .col
+        .card.track-card.h-100
+          img.card-img-top(src=track.image, alt=track.name)
+          .card-body
+            h4.card-title
+              a(href="/track")= track.name
+            p.address= track.address
+            .facilities
+              each facility in track.facilities
+                span.badge.bg-warning.text-dark= facility
+          .card-footer.d-flex.justify-content-between.align-items-center
+            span.distance
+              i.fas.fa-location-dot
+              |  #{track.distance}
+  script.
+    document.querySelectorAll('[data-scroll]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var strip = document.getElementById(btn.dataset.target);
+        strip.scrollBy({ left: Number(btn.dataset.scroll) * strip.clientWidth, behavior: 'smooth' });
+      });
+    });

@@ -1,13 +1,15 @@
 doctype html
-html(lang='en')
+html(lang='en', data-bs-theme='dark')
   head
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+  body.d-flex.flex-column.min-vh-100
     nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
       .container
         a.navbar-brand(href='/') ApexFlow
@@ -19,7 +21,7 @@ html(lang='en')
               a.nav-link(href='/about') About
     .container
       block content
-      footer
+      footer.container
         .row
           .col-12
             small &copy; Bartlomiej Jedrzejowski 2026

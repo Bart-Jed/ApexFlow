@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/stylesheets', express.static(path.join(__dirname, 'stylesheets')));
 app.use('/stylesheets', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/', indexRouter);
 
