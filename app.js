@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('./app_server/routes/index');
 require('dotenv').config();
-require('./app_server/models/db');
+require('./app_api/models/db');
+const indexRouter = require('./app_server/routes/index');
+const apiRoutes = require('./app_api/routes/index');
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use('/stylesheets', express.static(path.join(__dirname, 'node_modules/bootst
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+app.use('/api', apiRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`ApexFlow running on http://localhost:${port}`));

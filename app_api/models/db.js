@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const dbURI = process.env.MONGODB_URI
+const dbURI = process.env.MONGODB_URI;
 try {
   mongoose.connect (
-    dbURI).then(
+    dbURI, {}).then(
       () => {console.log("Mongoose is connected")},
-      err=> {console.log("Error has occurred!" + err)},
-    )
+      err=> {console.log("Error has occurred!" + err)}
+    );
 }
 catch (e) {
   console.log("Could not connect");
