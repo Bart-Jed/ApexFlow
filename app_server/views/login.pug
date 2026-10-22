@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .row.banner
+        .col-12
+            h1= title
+    .row
+        .col-12.col-md-8
+            form(action='/login', method='post')
+                .form-group.row
+                    label.col-10.col-sm-2.col-form-label(for="email") Email
+                    .col-12.col-sm-10
+                        input#email.form-control(name="email")
+                .form-group.row
+                  label.col-10.col-sm-2.col-form-label(for="password") Password
+                  .col-12.col-sm-10
+                      input#password.form-control(name="password")
+                .form-group.row
+                    button.btn.btn-primary.float-right Login
+            .col-12.col-md-4
+
+
