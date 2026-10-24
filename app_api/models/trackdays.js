@@ -6,7 +6,7 @@ const trackdaySchema = new mongoose.Schema({
   price: { type: Number, min: 0, required: true},
   spaces: { type: Number, min: 0, required: true},
   address: String,
-  coords: { type: [Number], index: '2dsphere'}
+  coords: { type: [Number], index: '2dsphere', default: undefined}
 });
 
 mongoose.model('TrackdayEvents', trackdaySchema);
