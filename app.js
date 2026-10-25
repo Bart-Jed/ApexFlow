@@ -22,5 +22,31 @@ app.use('/', indexRouter);
 app.use('/api', apiRoutes);
 app.use('/', loginRouter);
 
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+
+  if (status >= 500) {
+    console.error(err);
+  }
+
+  const message = status < 500 ? err.message : 'Something went wrong';
+
+  if (req.originalUrl.startsWith('/api')) {
+    return res.status(status).json({ status, message });
+  }
+
+  res.status(status).render('error', {
+    title: 'Error',
+    status,
+    message
+  });
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`ApexFlow running on http://localhost:${port}`));

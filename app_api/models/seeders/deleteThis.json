@@ -1,8 +1,8 @@
 {
     "trackName": "Delete This",
-    "date": "2026-12-25",
-    "price": 999,
-    "spaces": 999,
+    "date": "2000-1-1",
+    "price": 0,
+    "spaces": 0,
     "address": "Delete This, Co. Delete, This",
     "coords": [0, 0]
 }

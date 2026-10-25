@@ -3,7 +3,7 @@ const dbURI = process.env.MONGODB_URI;
 try {
   mongoose.connect (
     dbURI, {}).then(
-      () => {console.log("Mongoose is connected")},
+      () => {console.log("Mongoose is connected"), console.log(mongoose.connection.name)},
       err=> {console.log("Error has occurred!" + err)}
     );
 }
