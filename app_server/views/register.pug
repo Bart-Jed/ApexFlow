@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= title
+  .row
+    .col-12.col-md-8
+      form(action='/register', method='post')
+        .mb-3.row 
+          label.col-12.col-sm-2.col-form-label(for='name') Name
+          .col-12.col-sm-10
+            input#name.form-control(type='text', name='name')
+        .mb-3.row
+          label.col-12.col-sm-2.col-form-label(for='email') Email
+          .col-12.col-sm-10
+            input#email.form-control(type='email', name='email')
+        .mb-3.row
+          label.col-12.col-sm-2.col-form-label(for='password') Password
+          .col-12.col-sm-10
+            input#password.form-control(type='password', name='password')
+        .mb-3.row
+          label.col-12.col-sm-2.col-form-label(for='confirmPassword') Confirm Password
+          .col-12.col-sm-10
+            input#confirmPassword.form-control(type='password', name='confirmPassword')
+        
+        .mb-3.row
+          .col-12
+            button.btn.btn-primary.float-end(type='submit')
+              i.fas.fa-user-plus
+              |  Register
+    .col-12.col-md-4
+      .card
+        .card-body
+          h5.card-title Login
+          p.card-text ALready have an account? Login now to access your profile!
+          a.btn.btn-primary(href='/login')
+            i.fas.fa-right-to-bracket
+            |  Login

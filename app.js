@@ -5,6 +5,7 @@ require('./app_api/models/db');
 const indexRouter = require('./app_server/routes/index');
 const apiRoutes = require('./app_api/routes/index');
 const loginRouter = require('./app_server/routes/login/login');
+const registerRouter = require('./app_server/routes/register/register');
 const app = express();
 
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -21,6 +22,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/', indexRouter);
 app.use('/api', apiRoutes);
 app.use('/', loginRouter);
+app.use('/', registerRouter);
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');

@@ -1,24 +1,30 @@
 extends layout
 
 block content
-    .row.banner
-        .col-12
-            h1= title
-    .row
-        .col-12.col-md-8
-            form(action='/login', method='post')
-                .form-group.row
-                    label.col-10.col-sm-2.col-form-label(for="email") Email
-                    .col-12.col-sm-10
-                        input#email.form-control(name="email")
-                .form-group.row
-                  label.col-10.col-sm-2.col-form-label(for="password") Password
-                  .col-12.col-sm-10
-                      input#password.form-control(name="password")
-                .form-group.row
-                    button.btn.btn-primary.float-right 
-                    i.fas.fa-sign-in-alt
-                    |  Login
-            .col-12.col-md-4
-
-
+  .row.banner
+    .col-12
+      h1= title
+  .row
+    .col-12.col-md-8
+      form(action='/login', method='post')
+        .mb-3.row
+          label.col-12.col-sm-2.col-form-label(for='email') Email
+          .col-12.col-sm-10
+            input#email.form-control(type='email', name='email')
+        .mb-3.row
+          label.col-12.col-sm-2.col-form-label(for='password') Password
+          .col-12.col-sm-10
+            input#password.form-control(type='password', name='password')
+        .mb-3.row
+          .col-12
+            button.btn.btn-primary.float-end(type='submit')
+              i.fas.fa-right-to-bracket
+              |  Login
+    .col-12.col-md-4
+      .card
+        .card-body
+          h5.card-title Register
+          p.card-text Don't have an account? Register now to save trackdays!
+          a.btn.btn-success(href='/register')
+            i.fas.fa-user-plus
+            |  Register
